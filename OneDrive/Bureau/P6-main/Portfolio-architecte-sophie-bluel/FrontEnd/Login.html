@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>login</title>
+    <link rel="stylesheet" href="assets/login.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="login.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+      <nav>
+        <ul>
+          <li>projets</li>
+          <li>contact</li>
+          <li><a href="index.html">login</a></li>
+          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <form class="container">
+        <p class="container_head">Login</p>
+
+        <label for="E-mail">E-mail</label>
+        <input class="container_input_email" type="email" placeholder="" />
+
+        <label for="password">Mot de passe</label>
+        <input
+          class="container_input_password"
+          type="password"
+          placeholder=""
+        />
+
+        <button class="container_button">Se connecter</button>
+        <a href="">Mot de passe oublié</a>
+        <div class="erreur_login"></div>
+      </form>
+    </main>
+  </body>
+</html>
