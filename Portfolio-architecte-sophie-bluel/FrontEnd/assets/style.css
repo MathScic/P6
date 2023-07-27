@@ -254,44 +254,37 @@ h1 {
     text-align: center;
   }
 
-.button_container {
-    display: block;
-    margin: 0 auto;
-  }
 
-.button_container {
-	margin-top: 1rem;
-	padding: 15px;
-	width: 230px;
-	border: 1px solid rgba(0, 0, 0, 0.09);
-	border-radius: 60px;
-	background-color: #1D6154;
-	color: white;
-	outline: none;
-	box-shadow:rgba(0, 0, 0, 0.09);
-	font-size: 18px;
+.js-modal:hover {
+	cursor: pointer;
 }
+
+
+ .js-modal-close {
+	border: transparent;
+	background-color: transparent;
+	font-size: 20px;
+ }
+
+ .js-modal-close i:hover {
+	cursor: pointer;
+ }
 
 .supr_container {
 	margin-top: 2rem;
 	padding: 15px;
 	width: 200px;
 	border: 1px solid transparent;
-	border-radius: 60px;
 	background-color: transparent;
 	color: #FF5733;
 	outline: none;
-	box-shadow:rgba(0, 0, 0, 0.09);
 	font-size: 16px;
+	
 }
 
 .supr_container {
 	display: block;
     margin: 0 auto;
-}
-
-.button_container, .supr_container:hover {
-	cursor: pointer;
 }
 
 .container_suppression img {
@@ -300,7 +293,8 @@ h1 {
 
 .lien_suppr {
     position: absolute;
-	padding-left: 3rem;
+	padding-left: 3.5rem;
+	padding-top: 5px;
 }
 
 .container_suppression {
@@ -314,6 +308,31 @@ h1 {
     margin-bottom: 3rem;
 }
 
-.button_container {
-    margin-top: 3rem;
-}
+/**Ajout photo**/
+[type="file"] {
+	height: 0;  
+	width: 0;
+	overflow: hidden;
+	margin-top: 4rem;
+	margin-bottom: 2rem;
+  }
+  [type="file"] + label {
+	font-family: sans-serif;
+	background: #1D6154;
+	padding: 10px 30px;
+	border: 2px solid #1D6154;
+	border-radius: 30px;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s;
+  }
+  [type="file"] + label:hover {
+	background-color: #fff;
+	color: #1D6154;
+  }
+  
+  form label  {
+	margin-top: 1rem;
+  }
+ 
+  

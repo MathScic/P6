@@ -16,7 +16,7 @@ const openModal = async (e) => {
     console.log("image element", imgElement);
     const lienSuppr = document.createElement("a"); // creer div avec img et lien pour adapter en css en absolute
     lienSuppr.classList.add("lien_suppr");
-    lienSuppr.innerHTML = "<i class=fa-thin fa-trash-can></i>";
+    lienSuppr.innerHTML = `<i class="fa-solid fa-trash"></i>`;
     const div = document.createElement("div");
     div.append(lienSuppr);
     div.append(imgElement);
@@ -59,7 +59,6 @@ const openModal = async (e) => {
 
 const closeModal = function (e) {
   containerImg.innerHTML = "";
-  debugger;
   modal.style.display = "none"; //masque la div de la modal
   modal.setAttribute("aria-hidden", "true");
 };
@@ -77,36 +76,42 @@ window.addEventListener("keydown", function (e) {
 });
 
 /**Ajout photo **/
-const choixFichier = document.getElementById("choix-fichier");
-const imgPreview = document.getElementById("img_preview");
-let formData = new FormData();
 
-formData.append("userfiles", choixFichier.files);
+const chooseFile = document.getElementById("choose-file");
+const imgPreview = document.getElementById("img-preview");
 
-try {
-  const response = await fetch("", {
-    method: "POST",
-    body: formData,
-  });
-
-  const data = await response.json();
-  console.log(data);
-} catch (error) {
-  console.error("erreur survenue pendant requete");
-}
-
-choixFichier.addEventListener("change", function () {
+chooseFile.addEventListener("change", function () {
   getImgData();
 });
 
-function getImgData() {
-  const fichier = choixFichier.files[0];
-  if (fichier) {
-    const fichierReader = new FileReader();
-    fichierReader.readAsDataURL(fichier);
-    fichierReader.addEventListener("load", function () {
+async function getImgData() {
+  const options = {
+    method: "POST",
+    body: formData,
+  };
+  try {
+    const response = await fetch("http://localhost:5678/api/works/${image.id}");
+    if (response.ok) {
+      const data = await response.text();
+      console.log("reponse du serveur : ", data);
+    } else {
+      throw new Error("requete echoué");
+    }
+  } catch (error) {
+    console.error("erreur pendant reque: ", error);
+  }
+
+  getImgData();
+
+  const files = chooseFile.files[0]; //Permet acces a element file de l'input
+  if (files) {
+    const fileReader = new FileReader(); //Creer instance permettant lecture de fichier coté client
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", function () {
       imgPreview.style.display = "block";
-      imgPreview.innerHTML = `<img src="` + this.result + `" />`;
+      imgPreview.innerHTML = '<img src="' + this.result + '" />';
     });
   }
 }
+
+const newModal = document.getElementById("#modal1");

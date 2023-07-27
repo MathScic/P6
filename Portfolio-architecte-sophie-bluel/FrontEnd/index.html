@@ -11,10 +11,13 @@
       rel="stylesheet"
     />
     <meta name="description" content="" />
-    <script
-      src="https://kit.fontawesome.com/76e9b7325c.js"
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
-    ></script>
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="stylesheet" href="modal.css" />
     <script src="script.js" type="module"></script>
@@ -60,27 +63,30 @@
           Mes Projets
 
           <a href="#" class="js-modal"
-            ><i class="fa-thin fa-pen-to-square"></i>modifier</a
+            ><i class="fa-solid fa-pen-to-square"></i>modifier</a
           >
           <div class="container">
             <aside id="" class="modal" aria-hidden="true" role="dialog">
               <div class="modal-wrapper" id="img-container">
                 <button class="js-modal-close">
-                  <i class="fa-thin fa-xmark-large"></i>
+                  <i class="fa-solid fa-xmark"></i>
                 </button>
                 <h1>Gallerie photo</h1>
 
                 <div class="container_suppression"></div>
-                <div class="img_preview">
-                  <button
-                    class="button_container"
-                    type="file"
-                    id="choix-fichier"
-                    accept="image/*"
-                  >
-                    Ajouter une photo
-                  </button>
-                </div>
+                <form id="modale1">
+                  <div>
+                    <div id="img_preview"></div>
+                    <input
+                      type="file"
+                      id="choose-file"
+                      name="choose-file"
+                      accept="image/*"
+                    />
+                    <label for="choose-file">Ajouter photo</label>
+                  </div>
+                </form>
+
                 <button class="supr_container">Supprimer la galerie</button>
               </div>
             </aside>
