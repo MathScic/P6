@@ -80,9 +80,9 @@ window.addEventListener("keydown", function (e) {
 const chooseFile = document.getElementById("choose-file");
 const imgPreview = document.getElementById("img-preview");
 
-chooseFile.addEventListener("change", function () {
+/**chooseFile.addEventListener("change", function () {
   getImgData();
-});
+});**/
 
 async function getImgData() {
   const options = {
@@ -114,4 +114,9 @@ async function getImgData() {
   }
 }
 
-const newModal = document.getElementById("#modal1");
+const inputBouton = document.getElementById("bouton-ajouter");
+const formAddPhoto = document.querySelector("ajout-photo");
+
+inputBouton.addEventListener("click", function () {
+  formAddPhoto.style.display = "block";
+});

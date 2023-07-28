@@ -236,7 +236,7 @@ aside h1 {
 	font-size: 25px;
 }
 
-aside button {
+aside button i {
 	margin-left: 32rem;
 }
 
@@ -309,14 +309,8 @@ h1 {
 }
 
 /**Ajout photo**/
-[type="file"] {
-	height: 0;  
-	width: 0;
-	overflow: hidden;
-	margin-top: 4rem;
-	margin-bottom: 2rem;
-  }
-  [type="file"] + label {
+#bouton-ajouter {
+	border-radius: 30px;
 	font-family: sans-serif;
 	background: #1D6154;
 	padding: 10px 30px;
@@ -325,14 +319,15 @@ h1 {
 	color: #fff;
 	cursor: pointer;
 	transition: all 0.2s;
-  }
-  [type="file"] + label:hover {
+	margin-top: 1.5rem;
+	overflow: hidden;
+	width: 200px;
+}
+
+#bouton-ajouter:hover {
 	background-color: #fff;
 	color: #1D6154;
-  }
-  
-  form label  {
-	margin-top: 1rem;
-  }
+}
  
+
   

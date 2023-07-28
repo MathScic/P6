@@ -78,14 +78,27 @@
                   <div>
                     <div id="img_preview"></div>
                     <input
-                      type="file"
-                      id="choose-file"
-                      name="choose-file"
-                      accept="image/*"
+                      type="button"
+                      value="Ajouter photo"
+                      id="bouton-ajouter"
                     />
-                    <label for="choose-file">Ajouter photo</label>
                   </div>
                 </form>
+
+                <div class="ajout-photo" style="display: none">
+                  <form id="modale2">
+                    <div>
+                      <input
+                        type="file"
+                        type="file"
+                        id="choose-file"
+                        name="choose-file"
+                        accept="image/*"
+                      />
+                      <label for="choose-file">Ajout photo</label>
+                    </div>
+                  </form>
+                </div>
 
                 <button class="supr_container">Supprimer la galerie</button>
               </div>
