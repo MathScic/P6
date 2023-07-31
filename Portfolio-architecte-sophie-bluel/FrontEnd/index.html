@@ -73,19 +73,23 @@
                 </button>
                 <h1>Gallerie photo</h1>
 
+                <!--Modal-->
                 <div class="container_suppression"></div>
+
                 <form id="modale1">
                   <div>
-                    <div id="img_preview"></div>
-                    <button id="bouton-ajouter">Ajouter photo</button>
+                    <a href="#" class="js-modal-2"
+                      ><button id="bouton-ajouter">Ajouter photo</button></a
+                    >
                   </div>
                 </form>
 
-                <div class="ajout-photo" style="display: none">
-                  <form id="modale2">
+                <!--Bouton Ajouter photo-->
+                <div class="ajout-photo" style="display: none" id="modale2">
+                  <form>
                     <div>
+                      <div id="img_preview"></div>
                       <input
-                        type="file"
                         type="file"
                         id="choose-file"
                         name="choose-file"

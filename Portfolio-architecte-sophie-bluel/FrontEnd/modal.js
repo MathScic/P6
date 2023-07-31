@@ -75,34 +75,27 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
-/**Ajout photo **/
+const addPhoto = document.querySelector(".js-modal-2");
+const retourModal = document.querySelector(".img-container");
+
+addPhoto.addEventListener("click", function () {
+  document.querySelector(".container_suppression").style.display = "none";
+  document.querySelector(".ajout-photo").style.display = "block";
+});
+
+retourModal.addEventListener("click", function () {
+  document.querySelector(".container_suppression").style.display = "block";
+  document.querySelector(".ajout-photo").style.display = "none";
+});
 
 const chooseFile = document.getElementById("choose-file");
 const imgPreview = document.getElementById("img-preview");
 
-/**chooseFile.addEventListener("change", function () {
+chooseFile.addEventListener("change", function () {
   getImgData();
-});**/
+});
 
-async function getImgData() {
-  const options = {
-    method: "POST",
-    body: formData,
-  };
-  try {
-    const response = await fetch("http://localhost:5678/api/works/${image.id}");
-    if (response.ok) {
-      const data = await response.text();
-      console.log("reponse du serveur : ", data);
-    } else {
-      throw new Error("requete echoué");
-    }
-  } catch (error) {
-    console.error("erreur pendant reque: ", error);
-  }
-
-  getImgData();
-
+function getImgData() {
   const files = chooseFile.files[0]; //Permet acces a element file de l'input
   if (files) {
     const fileReader = new FileReader(); //Creer instance permettant lecture de fichier coté client
@@ -111,12 +104,11 @@ async function getImgData() {
       imgPreview.style.display = "block";
       imgPreview.innerHTML = '<img src="' + this.result + '" />';
     });
+    document.querySelector("label").style.display = "none";
   }
 }
 
-const inputBouton = document.getElementById("bouton-ajouter");
-const formAddPhoto = document.querySelector("ajout-photo");
+/**const formData = new FormData();
+const titleData = document.querySelector(".ajout-photo");
 
-inputBouton.addEventListener("click", function () {
-  formAddPhoto.style.display = "block";
-});
+formData.append("title", title.value);**/

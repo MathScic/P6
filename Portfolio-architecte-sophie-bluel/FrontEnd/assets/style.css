@@ -328,6 +328,39 @@ h1 {
 	background-color: #fff;
 	color: #1D6154;
 }
+
+
+#img-preview {
+	display: none;
+	width: 155px;
+	border: 2px dashed #333;  
+	margin-bottom: 20px;
+  }
+  #img-preview img {
+	width: 100%;
+	height: auto;
+	display: block;
+  }
+  [type="file"] {
+	height: 0;  
+	width: 0;
+	overflow: hidden;
+  }
+  [type="file"] + label {
+	font-family: sans-serif;
+	background: #1D6154;
+	padding: 10px 30px;
+	border: 2px solid #1D6154;
+	border-radius: 3px;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s;
+	border-radius: 30px;
+  }
+  [type="file"] + label:hover {
+	background-color: #fff;
+	color: #1D6154;
+  }
  
 
   
