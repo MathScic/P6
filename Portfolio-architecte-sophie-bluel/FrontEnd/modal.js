@@ -75,8 +75,9 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
+//
 const addPhoto = document.querySelector(".js-modal-2");
-const retourModal = document.querySelector(".img-container");
+const retourModal = document.querySelector("#img-container");
 
 addPhoto.addEventListener("click", function () {
   document.querySelector(".container_suppression").style.display = "none";
@@ -84,12 +85,13 @@ addPhoto.addEventListener("click", function () {
 });
 
 retourModal.addEventListener("click", function () {
-  document.querySelector(".container_suppression").style.display = "block";
-  document.querySelector(".ajout-photo").style.display = "none";
+  document.querySelector(".container_suppression").style.display = "none";
+  document.querySelector("#bouton-ajouter").style.display = "none";
+  document.querySelector(".titre-gallerie").style.display = "none";
 });
 
 const chooseFile = document.getElementById("choose-file");
-const imgPreview = document.getElementById("img-preview");
+const imgPreview = document.getElementById("img_preview");
 
 chooseFile.addEventListener("change", function () {
   getImgData();
@@ -108,7 +110,7 @@ function getImgData() {
   }
 }
 
-/**const formData = new FormData();
+const formData = new FormData();
 const titleData = document.querySelector(".ajout-photo");
 
-formData.append("title", title.value);**/
+formData.append("title", titleData.value);

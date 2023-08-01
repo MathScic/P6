@@ -71,7 +71,7 @@
                 <button class="js-modal-close">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
-                <h1>Gallerie photo</h1>
+                <h1 class="titre-gallerie">Gallerie photo</h1>
 
                 <!--Modal-->
                 <div class="container_suppression"></div>
@@ -86,20 +86,22 @@
 
                 <!--Bouton Ajouter photo-->
                 <div class="ajout-photo" style="display: none" id="modale2">
-                  <form>
-                    <div>
+                  <form class="form-ajout-photo">
+                    <h1>Ajout photo</h1>
+                    <div class="input-contour">
                       <div id="img_preview"></div>
-                      <input
-                        type="file"
-                        id="choose-file"
-                        name="choose-file"
-                        accept="image/*"
-                      />
-                      <label for="choose-file">Ajout photo</label>
+
+                      <i class="fa-regular fa-image">
+                        <input
+                          type="file"
+                          id="choose-file"
+                          name="choose-file"
+                          accept="image/*"
+                      /></i>
+                      <label for="choose-file">+ Ajouter photo</label>
                     </div>
                   </form>
                 </div>
-
                 <button class="supr_container">Supprimer la galerie</button>
               </div>
             </aside>

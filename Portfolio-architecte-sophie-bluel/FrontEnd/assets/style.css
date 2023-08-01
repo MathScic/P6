@@ -285,6 +285,7 @@ h1 {
 .supr_container {
 	display: block;
     margin: 0 auto;
+	margin-top: 6rem;
 }
 
 .container_suppression img {
@@ -308,7 +309,8 @@ h1 {
     margin-bottom: 3rem;
 }
 
-/**Ajout photo**/
+
+/**Ajouter photo**/
 #bouton-ajouter {
 	border-radius: 30px;
 	font-family: sans-serif;
@@ -341,26 +343,62 @@ h1 {
 	height: auto;
 	display: block;
   }
-  [type="file"] {
-	height: 0;  
-	width: 0;
-	overflow: hidden;
+
+  /**Modal 2 ajout photo**/
+  .ajout-photo {
+	display: flex;
+	width: 400px;
+	height: 160px;
   }
-  [type="file"] + label {
-	font-family: sans-serif;
-	background: #1D6154;
-	padding: 10px 30px;
-	border: 2px solid #1D6154;
-	border-radius: 3px;
-	color: #fff;
-	cursor: pointer;
-	transition: all 0.2s;
+
+  .input-contour {
+	background-color: 
+	rgba(232, 241, 246, 1);
+	border: 1px solid transparent;
+  }
+
+  .input-contour label {
+	margin-top: 2rem;
+	margin-left: 7rem;
+	width: 170px;
+	height: 35px;
+	color: rgba(48, 102, 133, 1);
+	background: rgba(203, 214, 220, 1);
 	border-radius: 30px;
+	font-size: 15px;
+	font-weight: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
   }
-  [type="file"] + label:hover {
-	background-color: #fff;
-	color: #1D6154;
+
+  .input-contour label:hover {
+	cursor: pointer;
   }
+
+  .fa-image {
+	color: grey;
+	font-weight: 100;
+	font-size: 58px;
+  }
+
+  .fa-image {
+	width: 50px;
+	height: 50px;
+  }
+
+  button .supr_container {
+	display: none;
+  }
+
+  #img-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+  }
+
+  
  
 
   
