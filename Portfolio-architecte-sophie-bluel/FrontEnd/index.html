@@ -91,15 +91,66 @@
                     <div class="input-contour">
                       <div id="img_preview"></div>
 
-                      <i class="fa-regular fa-image">
+                      <i class="fa-regular fa-image"></i>
+
+                      <label for="choose-file" class="addImgLabel">
+                        <p>+ Ajouter photo</p>
                         <input
                           type="file"
                           id="choose-file"
                           name="choose-file"
                           accept="image/*"
-                      /></i>
-                      <label for="choose-file">+ Ajouter photo</label>
+                        />
+                      </label>
+                      <p>jpg. png : 4mo max</p>
                     </div>
+
+                    <div class="inputTitle">
+                      <label for="" class="addWorkLabel">
+                        <p>Titre</p>
+                      </label>
+                      <input
+                        type="text"
+                        name="title"
+                        class="addWorkTitle"
+                        required
+                      />
+                    </div>
+
+                    <div class="">
+                      <label for="" class="addWorkLabel">
+                        <p>Categorie</p>
+                      </label>
+                      <select
+                        type="select"
+                        class="selectCategory"
+                        name="category"
+                      >
+                        <option value=""></option>
+                        <option
+                          id="Appartement"
+                          value="2"
+                          class="selectCategoryElement"
+                        >
+                          Appartement
+                        </option>
+                        <option
+                          id="Hotels & restaurants"
+                          value="3"
+                          class="selectCategoryElement"
+                        >
+                          Hôtels & restaurants
+                        </option>
+                        <option
+                          id="Objet"
+                          value="1"
+                          class="selectCategoryElement"
+                        >
+                          Objet
+                        </option>
+                      </select>
+                    </div>
+                    <input type="submit" value="Valider" id="valider" />
                   </form>
                 </div>
                 <button class="supr_container">Supprimer la galerie</button>

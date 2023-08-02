@@ -86,8 +86,10 @@ addPhoto.addEventListener("click", function () {
 
 retourModal.addEventListener("click", function () {
   document.querySelector(".container_suppression").style.display = "none";
+  document.querySelector(".ajout-photo").style.display = "block";
   document.querySelector("#bouton-ajouter").style.display = "none";
   document.querySelector(".titre-gallerie").style.display = "none";
+  document.querySelector(".supr_container").style.display = "none";
 });
 
 const chooseFile = document.getElementById("choose-file");
@@ -110,7 +112,9 @@ function getImgData() {
   }
 }
 
+//formData utilisation
 const formData = new FormData();
 const titleData = document.querySelector(".ajout-photo");
 
 formData.append("title", titleData.value);
+formData.append("userfile", fileInputElement.files[0]);

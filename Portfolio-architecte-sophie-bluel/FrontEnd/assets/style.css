@@ -264,6 +264,7 @@ h1 {
 	border: transparent;
 	background-color: transparent;
 	font-size: 20px;
+	display: flex;
  }
 
  .js-modal-close i:hover {
@@ -311,6 +312,10 @@ h1 {
 
 
 /**Ajouter photo**/
+.arrowLeft {
+
+  }
+
 #bouton-ajouter {
 	border-radius: 30px;
 	font-family: sans-serif;
@@ -357,23 +362,51 @@ h1 {
 	border: 1px solid transparent;
   }
 
-  .input-contour label {
-	margin-top: 2rem;
-	margin-left: 7rem;
-	width: 170px;
-	height: 35px;
+  .addImgLabel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 1.5rem;
+	margin-bottom: 5px;
+	width: 50%;
+	height: 40px;
 	color: rgba(48, 102, 133, 1);
 	background: rgba(203, 214, 220, 1);
 	border-radius: 30px;
 	font-size: 15px;
 	font-weight: 100;
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
+	text-align: center;
+  }
+
+  .input-contour p label {
+	font-family: work sans;
+	font-weight: 400;
+	font-size: 12px;
+	margin-top: 5px;
+  }
+
+  .input-contour p {
+	font-family: work sans;
+	font-weight: 400;
+	font-size: 12px;
+	margin-top: 5px;
+	margin-bottom: 20px;
   }
 
   .input-contour label:hover {
 	cursor: pointer;
+  }
+
+  label p {
+	display: block;
+	margin-block-start: 1rem;
+	margin-block-end: 1rem;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
   }
 
   .fa-image {
@@ -397,6 +430,55 @@ h1 {
 	flex-direction: column;
 	align-items: center;
   }
+
+  #choose-file {
+	display: none;
+  }
+
+  .inputTitle {
+	display: flex;
+	flex-direction: column;
+  }
+
+  .addWorkLabel p {
+	font-family: work sans;
+	font-weight: 500;
+	font-size: 15px;
+	display: flex;
+	margin-top: 2rem;
+  }
+
+  .addWorkTitle {
+	width: 400px;
+	height: 50px;
+	background-color: 
+	rgba(255, 255, 255, 1);
+	box-shadow: 
+	0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: transparent;
+  }
+
+  .selectCategory {
+	width: 400px;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+	margin-bottom: 2rem;
+  }
+
+  #valider {
+	width: 237px;
+	height: 36px;
+	border-radius: 30px;
+	border: none;
+	background-color: #B0B0B0;
+  }
+
+  #valider:hover {
+	cursor: pointer;
+  }
+
 
   
  
