@@ -74,3 +74,14 @@ function displayTravaux(travaux) {
 }
 
 export { travaux, displayTravaux };
+
+//login => logout
+
+const loginLogout = document.getElementById("loginLogout");
+
+loginLogout.addEventListener("click", () => {
+  console.log("ok");
+  if (loginLogout) {
+    loginLogout.innerHTML = `<li><a href="Login.html" id="loginLogout">logout</a></li>`;
+  }
+});

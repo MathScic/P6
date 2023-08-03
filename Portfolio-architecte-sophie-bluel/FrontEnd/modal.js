@@ -129,7 +129,7 @@ function getImgData() {
   }
 }
 
-//creation Option dans la modal
+//creation dynamique de <option> dans la modal
 function creationOptionModal() {
   let addOptionModal = document.querySelector(".selectCategoryElement");
   addOptionModal.innerHTML = "";
