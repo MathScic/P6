@@ -58,9 +58,22 @@ const openModal = async (e) => {
 };
 
 const closeModal = function (e) {
-  containerImg.innerHTML = "";
-  modal.style.display = "none"; //masque la div de la modal
-  modal.setAttribute("aria-hidden", "true");
+  const boutonAjouterDisplay =
+    document.querySelector("#bouton-ajouter").style.display;
+  console.log(boutonAjouterDisplay);
+  if (boutonAjouterDisplay === "none") {
+    console.log("close");
+    //retour première modale
+    document.querySelector(".container_suppression").style.display = "grid";
+    document.querySelector(".ajout-photo").style.display = "none";
+    document.querySelector("#bouton-ajouter").style.display = "block";
+    document.querySelector(".titre-gallerie").style.display = "block";
+    document.querySelector(".supr_container").style.display = "block";
+  } else {
+    containerImg.innerHTML = "";
+    modal.style.display = "none"; //masque la div de la modal
+    modal.setAttribute("aria-hidden", "true");
+  }
 };
 
 document
@@ -77,19 +90,23 @@ window.addEventListener("keydown", function (e) {
 
 //
 const addPhoto = document.querySelector(".js-modal-2");
-const retourModal = document.querySelector("#img-container");
+const boutonAjoutPhoto = document.querySelector("#bouton-ajouter");
 
 addPhoto.addEventListener("click", function () {
   document.querySelector(".container_suppression").style.display = "none";
   document.querySelector(".ajout-photo").style.display = "block";
 });
 
-retourModal.addEventListener("click", function () {
+const displayAjoutPhoto = () => {
   document.querySelector(".container_suppression").style.display = "none";
   document.querySelector(".ajout-photo").style.display = "block";
   document.querySelector("#bouton-ajouter").style.display = "none";
   document.querySelector(".titre-gallerie").style.display = "none";
   document.querySelector(".supr_container").style.display = "none";
+};
+
+boutonAjoutPhoto.addEventListener("click", function () {
+  displayAjoutPhoto();
 });
 
 const chooseFile = document.getElementById("choose-file");
@@ -112,9 +129,38 @@ function getImgData() {
   }
 }
 
-//formData utilisation
-const formData = new FormData();
-const titleData = document.querySelector(".ajout-photo");
+//creation Option dans la modal
+function creationOptionModal() {
+  let addOptionModal = document.querySelector(".selectCategoryElement");
+  addOptionModal.innerHTML = "";
+  travaux.forEach(() => {
+    addOptionModal.innerHTML += `<otpion class="selectCategoryElement"> 
+    id="" value="</option>`;
+  });
+}
 
-formData.append("title", titleData.value);
-formData.append("userfile", fileInputElement.files[0]);
+//formData
+const formAddPicture = document.querySelector(".form-ajout-photo");
+
+formAddPicture.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("FORM SUBMITTED");
+  const inputFile = document.getElementById("choose-file");
+  console.log(inputFile.files[0]);
+  const inputTitle = document.querySelector("input[name=title]"); //On selectionne le Name
+  console.log(inputTitle.value);
+  const inputCategory = document.querySelector(".selectCategory");
+  console.log(inputCategory.value);
+  const formData = new FormData();
+  formData.append("title", inputTitle.value);
+  formData.append("category", inputCategory.value);
+  formData.append("image", inputFile.files[0]);
+
+  fetch("http://localhost:5678/api/works", {
+    method: "POST",
+    body: formData,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+});
