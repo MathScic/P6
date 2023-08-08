@@ -75,13 +75,19 @@ function displayTravaux(travaux) {
 
 export { travaux, displayTravaux };
 
-//login => logout
+//
+console.log(localStorage.getItem("token"));
 
-const loginLogout = document.getElementById("loginLogout");
-
-loginLogout.addEventListener("click", () => {
-  console.log("ok");
-  if (loginLogout) {
-    loginLogout.innerHTML = `<li><a href="Login.html" id="loginLogout">logout</a></li>`;
-  }
-});
+if (localStorage.getItem("token")) {
+  const logout = document.getElementById("loginLogout");
+  logout.innerHTML = `logout`;
+  logout.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    window.location.reload(); //raffraichir la page automatiquement
+  });
+} else {
+  const modifier = document.querySelector(".js-modal");
+  console.log(modifier);
+  modifier.style.display = "none";
+}

@@ -164,3 +164,20 @@ formAddPicture.addEventListener("submit", (event) => {
     },
   });
 });
+
+// Dynamiser caegorie dans modifier
+
+fetch("http://localhost:5678/api/categories");
+let category;
+const option = document.createElement("option");
+
+option.forEach((category) => {
+  const select = document.querySelector(".selectCategory");
+  console.log(select);
+  console.log(option);
+  option.value = category.id;
+  option.innerText = category.name;
+  select.appendChild(option);
+});
+
+//Ajout tous dans filtres
