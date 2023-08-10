@@ -75,7 +75,7 @@ function displayTravaux(travaux) {
 
 export { travaux, displayTravaux };
 
-//
+//modifier ce retir quand on est pas connecter
 console.log(localStorage.getItem("token"));
 
 if (localStorage.getItem("token")) {

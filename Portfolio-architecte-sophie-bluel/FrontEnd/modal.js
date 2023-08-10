@@ -166,9 +166,13 @@ formAddPicture.addEventListener("submit", (event) => {
 });
 
 // Dynamiser caegorie dans modifier
+fetch().then((response) => response.json().then((body) => console.log(body)));
 
-fetch("http://localhost:5678/api/categories");
-let category;
+async function fetchCategorie() {
+  const response = await fetch("http://localhost:5678/api/categories");
+  l;
+}
+/**let category;
 const option = document.createElement("option");
 
 option.forEach((category) => {
@@ -178,6 +182,6 @@ option.forEach((category) => {
   option.value = category.id;
   option.innerText = category.name;
   select.appendChild(option);
-});
+});**/
 
 //Ajout tous dans filtres
