@@ -105,7 +105,8 @@ const displayAjoutPhoto = () => {
   document.querySelector(".supr_container").style.display = "none";
 };
 
-boutonAjoutPhoto.addEventListener("click", function () {
+boutonAjoutPhoto.addEventListener("click", function (event) {
+  event.preventDefault();
   displayAjoutPhoto();
 });
 
@@ -165,23 +166,25 @@ formAddPicture.addEventListener("submit", (event) => {
   });
 });
 
-// Dynamiser caegorie dans modifier
-fetch().then((response) => response.json().then((body) => console.log(body)));
-
+// Dynamiser categorie dans modifier
 async function fetchCategorie() {
-  const response = await fetch("http://localhost:5678/api/categories");
-  l;
+  const response = await fetch("http://localhost:5678/api/categories", {
+    method: "GET",
+  });
+
+  if (response.ok === true) {
+    return response.json();
+  }
+  throw new Error("Impossible de contacter serveur");
 }
-/**let category;
-const option = document.createElement("option");
 
-option.forEach((category) => {
-  const select = document.querySelector(".selectCategory");
-  console.log(select);
-  console.log(option);
-  option.value = category.id;
-  option.innerText = category.name;
-  select.appendChild(option);
-});**/
-
-//Ajout tous dans filtres
+fetchCategorie().then((category) => {
+  category.forEach((element) => {
+    const option = document.createElement("option");
+    option.value = element.id;
+    option.innerText = element.name;
+    const select = document.querySelector(".selectCategory");
+    console.log(select);
+    select.appendChild(option); //Ajout de la balise option dans la select
+  });
+});

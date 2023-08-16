@@ -7,20 +7,10 @@ try {
   console.log(error);
 }
 
-// const afficherTravaux = (data) => {
-
 displayTravaux(travaux);
 
-// add event listener
-
-// 2 foreach pour html et event listener pour chaque catégorie creer
-//+ methode filter pour filtrer le tableau et ensuite reconstruire le tableau
 let categories;
-/**const tableauCategories = [
-  { id: 1, name: "Objets" },
-  { id: 2, name: "Appartements" },
-  { id: 3, name: "Hotels et restaurants" },
-];**/
+
 let id;
 
 /**Filtres travaux */
@@ -34,20 +24,39 @@ try {
 const filtres = document.querySelector(".filtres");
 const gallery = document.querySelector(".gallery");
 
+//Ajout de TOUS
+const li = document.createElement("li"); //Creer balise "li"
+const a = document.createElement("a");
+a.setAttribute("href", ""); //Ajoute element a la balise a
+li.append(a); //Ajout de la balise a à la const li
+filtres.append(li); // Ajout de la balise li a la const filtres
+a.innerText = "Tous"; // Ajout de texte
+a.addEventListener("click", (event) => {
+  //Creation evenement qui réagis au clique
+  event.preventDefault(); //Evite effet
+  displayTravaux(travaux);
+});
+
+//AJout class active pour garder fond en vert
+
 categories.forEach((category) => {
   console.log(category);
   const li = document.createElement("li");
   const a = document.createElement("a");
-  a.setAttribute("href", "#");
+  a.setAttribute("href", "");
 
   li.append(a);
   filtres.append(li);
   a.innerText = category.name;
 
-  a.addEventListener("click", () => {
+  a.addEventListener("click", (event) => {
+    event.preventDefault();
     console.log(category.name);
     console.log(category.id);
     filtreTravauxParCategorie(category.id);
+    const changeColorClick = li.classList.add("backgroundFilter");
+    changeColorClick.style.backgroundColor = "#1D6154";
+    console.log(changeColorClick);
   });
 });
 

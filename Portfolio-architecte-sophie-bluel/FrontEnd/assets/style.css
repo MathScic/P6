@@ -286,11 +286,12 @@ h1 {
 .supr_container {
 	display: block;
     margin: 0 auto;
-	margin-top: 6rem;
+
 }
 
 .container_suppression img {
     width: 95px;
+	height: 130px;
 }
 
 .lien_suppr {
@@ -424,12 +425,7 @@ h1 {
 	display: none;
   }
 
-  #img-container {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-  }
+
 
   #choose-file {
 	display: none;
