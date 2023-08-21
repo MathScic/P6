@@ -6,27 +6,31 @@ const inputPassword = document.querySelector(".container_input_password");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  console.log(form);
-  console.log(inputEmail, inputPassword);
 
   try {
     const settings = {
       method: "POST", //Méthod utiliser (GET, POST, PUT, DELETE...)
       headers: { "Content-Type": "application/json" }, // Headers = en tete de la requete //Content-type = contenue de en tete personaliser
       body: JSON.stringify({
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
         //Corp de la requète contient donner a envoyer
         email: inputEmail.value,
         password: inputPassword.value,
       }),
     };
+
     const response = await fetch(
       "http://localhost:5678/api/users/login",
       settings
     );
-    const login = await response.json();
-    localStorage.setItem("token", login.token); //Sauvegarde token
-    window.location = "index.html"; //re direction sur page accueil
-    console.log(login);
+
+    if (response.ok) {
+      const login = await response.json();
+      localStorage.setItem("token", login.token); //Sauvegarde token
+      window.location = "index.html"; //re direction sur page accueil
+    }
+
+    throw new Error("Mot de passe ou Identifiant invalide");
   } catch (error) {
     const erreurLogin = document.querySelector(".erreur_login");
     erreurLogin.innerText = `Mot de passe ou Identifiant invalide`;
@@ -34,8 +38,6 @@ form.addEventListener("submit", async (event) => {
     console.log(erreurLogin);
     console.log(error);
   }
-
-  console.log(inputEmail);
 
   if (inputEmail) {
     const recupEmail = inputEmail.value;

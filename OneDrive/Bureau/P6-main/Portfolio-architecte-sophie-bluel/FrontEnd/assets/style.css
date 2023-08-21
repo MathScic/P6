@@ -236,7 +236,7 @@ aside h1 {
 	font-size: 25px;
 }
 
-aside button {
+aside button i {
 	margin-left: 32rem;
 }
 
@@ -254,53 +254,50 @@ h1 {
     text-align: center;
   }
 
-.button_container {
-    display: block;
-    margin: 0 auto;
-  }
 
-.button_container {
-	margin-top: 1rem;
-	padding: 15px;
-	width: 230px;
-	border: 1px solid rgba(0, 0, 0, 0.09);
-	border-radius: 60px;
-	background-color: #1D6154;
-	color: white;
-	outline: none;
-	box-shadow:rgba(0, 0, 0, 0.09);
-	font-size: 18px;
+.js-modal:hover {
+	cursor: pointer;
 }
+
+
+ .js-modal-close {
+	border: transparent;
+	background-color: transparent;
+	font-size: 20px;
+	display: flex;
+ }
+
+ .js-modal-close i:hover {
+	cursor: pointer;
+ }
 
 .supr_container {
 	margin-top: 2rem;
 	padding: 15px;
 	width: 200px;
 	border: 1px solid transparent;
-	border-radius: 60px;
 	background-color: transparent;
 	color: #FF5733;
 	outline: none;
-	box-shadow:rgba(0, 0, 0, 0.09);
 	font-size: 16px;
+	
 }
 
 .supr_container {
 	display: block;
     margin: 0 auto;
-}
 
-.button_container, .supr_container:hover {
-	cursor: pointer;
 }
 
 .container_suppression img {
     width: 95px;
+	height: 130px;
 }
 
 .lien_suppr {
     position: absolute;
-	padding-left: 3rem;
+	padding-left: 3.5rem;
+	padding-top: 5px;
 }
 
 .container_suppression {
@@ -314,6 +311,177 @@ h1 {
     margin-bottom: 3rem;
 }
 
-.button_container {
-    margin-top: 3rem;
+
+/**Ajouter photo**/
+.arrowLeft {
+
+  }
+
+#bouton-ajouter {
+	border-radius: 30px;
+	font-family: sans-serif;
+	background: #1D6154;
+	padding: 10px 30px;
+	border: 2px solid #1D6154;
+	border-radius: 30px;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s;
+	margin-top: 1.5rem;
+	overflow: hidden;
+	width: 200px;
 }
+
+#bouton-ajouter:hover {
+	background-color: #fff;
+	color: #1D6154;
+}
+
+
+#img-preview {
+	display: none;
+	width: 155px;
+	border: 2px dashed #333;  
+	margin-bottom: 20px;
+  }
+  #img-preview img {
+	width: 100%;
+	height: auto;
+	display: block;
+  }
+
+  /**Modal 2 ajout photo**/
+  .ajout-photo {
+	display: flex;
+	width: 400px;
+	height: 160px;
+  }
+
+  .input-contour {
+	background-color: 
+	rgba(232, 241, 246, 1);
+	border: 1px solid transparent;
+  }
+
+  .addImgLabel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 1.5rem;
+	margin-bottom: 5px;
+	width: 50%;
+	height: 40px;
+	color: rgba(48, 102, 133, 1);
+	background: rgba(203, 214, 220, 1);
+	border-radius: 30px;
+	font-size: 15px;
+	font-weight: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+  }
+
+  .input-contour p label {
+	font-family: work sans;
+	font-weight: 400;
+	font-size: 12px;
+	margin-top: 5px;
+  }
+
+  .input-contour p {
+	font-family: work sans;
+	font-weight: 400;
+	font-size: 12px;
+	margin-top: 5px;
+	margin-bottom: 20px;
+  }
+
+  .input-contour label:hover {
+	cursor: pointer;
+  }
+
+  label p {
+	display: block;
+	margin-block-start: 1rem;
+	margin-block-end: 1rem;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+  }
+
+  .fa-image {
+	color: grey;
+	font-weight: 100;
+	font-size: 58px;
+  }
+
+  .fa-image {
+	width: 50px;
+	height: 50px;
+  }
+
+  button .supr_container {
+	display: none;
+  }
+
+
+
+  #choose-file {
+	display: none;
+  }
+
+  .inputTitle {
+	display: flex;
+	flex-direction: column;
+  }
+
+  .addWorkLabel p {
+	font-family: work sans;
+	font-weight: 500;
+	font-size: 15px;
+	display: flex;
+	margin-top: 2rem;
+  }
+
+  .addWorkTitle {
+	width: 400px;
+	height: 50px;
+	background-color: 
+	rgba(255, 255, 255, 1);
+	box-shadow: 
+	0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: transparent;
+  }
+
+  .selectCategory {
+	width: 400px;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+	margin-bottom: 2rem;
+  }
+
+  #valider {
+	width: 237px;
+	height: 36px;
+	border-radius: 30px;
+	border: none;
+	background-color: #B0B0B0;
+  }
+
+  #valider:hover {
+	cursor: pointer;
+  }
+
+.logdown .filtres li {
+	display: none;
+}
+
+
+
+  
+ 
+
+  

@@ -11,10 +11,13 @@
       rel="stylesheet"
     />
     <meta name="description" content="" />
-    <script
-      src="https://kit.fontawesome.com/76e9b7325c.js"
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
-    ></script>
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="stylesheet" href="modal.css" />
     <script src="script.js" type="module"></script>
@@ -26,7 +29,7 @@
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <li><a href="Login.html">login</a></li>
+          <li><a href="Login.html" id="loginLogout">login</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -60,26 +63,72 @@
           Mes Projets
 
           <a href="#" class="js-modal"
-            ><i class="fa-thin fa-pen-to-square"></i>modifier</a
+            ><i class="fa-solid fa-pen-to-square"></i>modifier</a
           >
           <div class="container">
             <aside id="" class="modal" aria-hidden="true" role="dialog">
               <div class="modal-wrapper" id="img-container">
                 <button class="js-modal-close">
-                  <i class="fa-thin fa-xmark-large"></i>
+                  <i class="fa-solid fa-xmark"></i>
                 </button>
-                <h1>Gallerie photo</h1>
+                <h1 class="titre-gallerie">Gallerie photo</h1>
 
+                <!--Modal-->
                 <div class="container_suppression"></div>
-                <div class="img_preview">
-                  <button
-                    class="button_container"
-                    type="file"
-                    id="choix-fichier"
-                    accept="image/*"
-                  >
-                    Ajouter une photo
-                  </button>
+
+                <form id="modale1">
+                  <div>
+                    <a href="#" class="js-modal-2"
+                      ><button id="bouton-ajouter">Ajouter photo</button></a
+                    >
+                  </div>
+                </form>
+
+                <!--Bouton Ajouter photo-->
+                <div class="ajout-photo" style="display: none" id="modale2">
+                  <form class="form-ajout-photo">
+                    <h1>Ajout photo</h1>
+                    <div class="input-contour">
+                      <div id="img_preview"></div>
+
+                      <i class="fa-regular fa-image"></i>
+
+                      <label for="choose-file" class="addImgLabel">
+                        <p>+ Ajouter photo</p>
+                        <input
+                          type="file"
+                          id="choose-file"
+                          name="choose-file"
+                          accept="image/*"
+                        />
+                      </label>
+                      <p class="size_max">jpg. png : 4mo max</p>
+                    </div>
+
+                    <div class="inputTitle">
+                      <label for="" class="addWorkLabel">
+                        <p>Titre</p>
+                      </label>
+                      <input
+                        type="text"
+                        name="title"
+                        class="addWorkTitle"
+                        required
+                      />
+                    </div>
+
+                    <div class="">
+                      <label for="" class="addWorkLabel">
+                        <p>Categorie</p>
+                      </label>
+                      <select
+                        type="select"
+                        class="selectCategory"
+                        name="category"
+                      ></select>
+                    </div>
+                    <input type="submit" value="Valider" id="valider" />
+                  </form>
                 </div>
                 <button class="supr_container">Supprimer la galerie</button>
               </div>
