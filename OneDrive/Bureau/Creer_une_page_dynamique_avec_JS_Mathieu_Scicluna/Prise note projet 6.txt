@@ -1,0 +1,5 @@
+ récup projet sdur API :
+
+- utiliser route API localhost:5678/api/works
+
+-choisir works

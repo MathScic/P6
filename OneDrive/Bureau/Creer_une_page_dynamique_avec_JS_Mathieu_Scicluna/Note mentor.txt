@@ -1,0 +1,8 @@
+- Comprendre quand est ce que l'API est récupérer (saavoir si les works est récupérer) 
+
+- Ratrapper les 10% de retard 
+
+-
+
+
+- promesse peut avoir plusieur etet (ending = en cours, resolved = resolue et rejected = rejeter 
