@@ -43,7 +43,6 @@ a.addEventListener("click", (event) => {
 //AJout class active pour garder fond en vert
 
 categories.forEach((category) => {
-  console.log(category);
   const li = document.createElement("li");
   const a = document.createElement("a");
   a.setAttribute("href", "");
@@ -59,7 +58,6 @@ categories.forEach((category) => {
     filtreTravauxParCategorie(category.id);
     const changeColorClick = li.classList.add("backgroundFilter");
     changeColorClick.style.backgroundColor = "#1D6154";
-    console.log(changeColorClick);
   });
 });
 
@@ -87,7 +85,8 @@ function displayTravaux(travaux) {
 
 export { travaux, displayTravaux };
 
-//modifier ce retir quand on est pas connecter
+//modifier ce retire quand on est pas connecter
+//verification du token
 console.log(localStorage.getItem("token"));
 
 if (localStorage.getItem("token")) {

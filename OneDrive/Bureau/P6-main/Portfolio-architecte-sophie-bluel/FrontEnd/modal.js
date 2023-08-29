@@ -28,19 +28,21 @@ const openModal = async (e) => {
 
       // suppression dans l'API
       try {
+        const login = localStorage.getItem("token");
+        console.log(login.token);
         const response = await fetch(
           `http://localhost:5678/api/works/${image.id}`,
           {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
+              Authorization: `Bearer ${login}`,
             },
           }
         );
 
         //
-
+        window.location.reload();
         const allWorksWithoutTheDeletedOne = travaux.filter(
           (work) => work.id !== image.id
         );
@@ -88,7 +90,7 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
-//
+//Ajouter photo (acces a la suite de la modal)
 const addPhoto = document.querySelector(".js-modal-2");
 const boutonAjoutPhoto = document.querySelector("#bouton-ajouter");
 
@@ -105,6 +107,7 @@ const displayAjoutPhoto = () => {
   document.querySelector(".supr_container").style.display = "none";
 };
 
+//Permet acceder a la modal d'ajout photo
 boutonAjoutPhoto.addEventListener("click", function (event) {
   event.preventDefault();
   displayAjoutPhoto();
@@ -132,16 +135,6 @@ function getImgData() {
   }
 }
 
-//creation dynamique de <option> dans la modal
-function creationOptionModal() {
-  let addOptionModal = document.querySelector(".selectCategoryElement");
-  addOptionModal.innerHTML = "";
-  travaux.forEach(() => {
-    addOptionModal.innerHTML += `<otpion class="selectCategoryElement"> 
-    id="" value="</option>`;
-  });
-}
-
 //formData
 const formAddPicture = document.querySelector(".form-ajout-photo");
 
@@ -164,7 +157,23 @@ formAddPicture.addEventListener("submit", (event) => {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
+  }).then(() => {
+    window.location.reload(); //Permet de raffraichir en ajoutant des photos
   });
+  /**try {
+    const response = response.json();
+
+    if (response.ok) {
+      const modaleGallery = document.querySelector(".modal");
+      modaleGallery.innerHTML = "";
+      getImgData();
+      alert("Nouvelle ressource DL");
+    } else {
+      alert("erreur DL new ressources");
+    }
+  } catch (error) {
+    alert("erreur lors créa ressource", error);
+  }**/
 });
 
 // Dynamiser categorie dans modifier
@@ -185,7 +194,6 @@ fetchCategorie().then((category) => {
     option.value = element.id;
     option.innerText = element.name;
     const select = document.querySelector(".selectCategory");
-    console.log(select);
     select.appendChild(option); //Ajout de la balise option dans la select
   });
 });

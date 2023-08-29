@@ -10,10 +10,11 @@ form.addEventListener("submit", async (event) => {
   try {
     const settings = {
       method: "POST", //Méthod utiliser (GET, POST, PUT, DELETE...)
-      headers: { "Content-Type": "application/json" }, // Headers = en tete de la requete //Content-type = contenue de en tete personaliser
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-        //Corp de la requète contient donner a envoyer
         email: inputEmail.value,
         password: inputPassword.value,
       }),
@@ -26,7 +27,9 @@ form.addEventListener("submit", async (event) => {
 
     if (response.ok) {
       const login = await response.json();
-      localStorage.setItem("token", login.token); //Sauvegarde token
+      console.log(login);
+      localStorage.setItem("token", login.token);
+      console.log(localStorage.getItem("token")); //Sauvegarde token
       window.location = "index.html"; //re direction sur page accueil
     }
 
@@ -54,7 +57,7 @@ form.addEventListener("submit", async (event) => {
 
 try {
   const response = await fetch("http://localhost:5678/api/works");
-  travaux = await response.json();
+  let travaux = await response.json();
 } catch (error) {
   console.log(error);
 }
